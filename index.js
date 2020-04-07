@@ -1,11 +1,15 @@
 const express = require('express');
 const conectarDB = require('./config/db');
+const cors = require('cors');
 
 // crear el servidor
 const app = express();
 
 // Conectar a la base de datos
 conectarDB();
+
+// habilitar cors
+app.use(cors());
 
 // Habilitar express.json
 app.use(express.json({ extended: true }));
@@ -14,7 +18,7 @@ app.use(express.json({ extended: true }));
 app.use('/api/usuarios', require('./routes/usuarios'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/proyectos', require('./routes/proyectos'));
-app.use('/api/proyectos/tareas', require('./routes/tareas'));
+app.use('/api/proyecto/tareas', require('./routes/tareas'));
 
 // Puerto de la app
 // El cliente esta en el servidor 3000, el serividor en el 4000

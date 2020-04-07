@@ -9,11 +9,6 @@ const TareaSchema = mongoose.Schema({
         type: Boolean,
         default: false
     },
-    creador: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Usuario',
-        required: true
-    },
     creado: {
         type: Date,
         default: Date.now()
